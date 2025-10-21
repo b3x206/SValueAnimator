@@ -9,7 +9,7 @@ It can technically animate any value, though it is primitive and doesn't support
 ## Usage
 
 You can install through UPM (not recommended as this package lacks asmdef files) <sup>(Window &gt; Package Manager &gt; Click `+` icon on top left &gt; Add from Git URL)</sup><br/>
-Or through the [Unity Package](/releases/latest/download/SValueAnimator.unitypackage) release.
+Or through the [Unity Package](https://github.com/b3x206/SValueAnimator/releases) release.
 
 Add one the premade components (either `BX.SpriteRendererAnimator` or `BX.ImageAnimator`) given to your to any GameObject, the component will look like this: <br/>
 ![Component Image](https://github.com/b3x206/SValueAnimator/blob/resource/resource/component-view.png?raw=true)
