@@ -1,0 +1,12 @@
+{
+    "name": "com.bx.valueanimator",
+    "version": "1.0.0",
+    "displayName": "BX.ValueAnimator",
+    "description": "Simple & extensible value animator.",
+    "dependencies": {},
+    "author": {
+        "name": "B3X",
+        "email": "b3x2088@gmail.com",
+        "url": "https://github.com/b3x206/"
+    }
+}
