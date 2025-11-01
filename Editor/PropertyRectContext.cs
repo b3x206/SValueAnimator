@@ -26,14 +26,14 @@ namespace BX.Editor.Utility
         /// Returns the <paramref name="property"/>'s rect.
         /// (by getting the height with <see cref="EditorGUI.GetPropertyHeight(SerializedProperty)"/>)
         /// </summary>
-        public Rect GetPropertyRect(Rect baseRect, SerializedProperty property)
+        public Rect GetRect(Rect baseRect, SerializedProperty property)
         {
-            return GetPropertyRect(baseRect, EditorGUI.GetPropertyHeight(property));
+            return GetRect(baseRect, EditorGUI.GetPropertyHeight(property));
         }
         /// <summary>
         /// Returns the base target rect.
         /// </summary>
-        public Rect GetPropertyRect(Rect baseRect, float height)
+        public Rect GetRect(Rect baseRect, float height)
         {
             baseRect.height = height;                  // set to target height
             baseRect.y += m_CurrentY + (YMargin / 2f); // offset by Y
@@ -44,17 +44,17 @@ namespace BX.Editor.Utility
 
         /// <summary>
         /// Returns the next target rect for <paramref name="property"/> that is going to have it's height pushed.
-        /// <br>This DOES NOT move the <see cref="CurrentY"/> in any way, use <see cref="GetPropertyRect(Rect, float)"/>.</br>
+        /// <br>This DOES NOT move the <see cref="CurrentY"/> in any way, use <see cref="GetRect(Rect, float)"/>.</br>
         /// </summary>
-        public Rect PeekPropertyRect(Rect baseRect, SerializedProperty property)
+        public Rect PeekRect(Rect baseRect, SerializedProperty property)
         {
-            return PeekPropertyRect(baseRect, EditorGUI.GetPropertyHeight(property));
+            return PeekRect(baseRect, EditorGUI.GetPropertyHeight(property));
         }
         /// <summary>
         /// Returns the next target rect that is going to have it's height pushed.
-        /// <br>This DOES NOT move the <see cref="CurrentY"/> in any way, use <see cref="GetPropertyRect(Rect, float)"/>.</br>
+        /// <br>This DOES NOT move the <see cref="CurrentY"/> in any way, use <see cref="GetRect(Rect, float)"/>.</br>
         /// </summary>
-        public Rect PeekPropertyRect(Rect baseRect, float height)
+        public Rect PeekRect(Rect baseRect, float height)
         {
             baseRect.height = height;                  // set to target height
             baseRect.y += m_CurrentY + (YMargin / 2f); // offset by Y

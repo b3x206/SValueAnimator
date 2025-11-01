@@ -61,7 +61,7 @@ namespace BX.Editor
             mainCtx.Reset();
             label = EditorGUI.BeginProperty(position, label, property);
 
-            property.isExpanded = EditorGUI.Foldout(mainCtx.GetPropertyRect(position, EditorGUIUtility.singleLineHeight), property.isExpanded, label);
+            property.isExpanded = EditorGUI.Foldout(mainCtx.GetRect(position, EditorGUIUtility.singleLineHeight), property.isExpanded, label);
 
             if (!property.isExpanded)
             {
@@ -69,7 +69,7 @@ namespace BX.Editor
             }
             if (property.serializedObject.isEditingMultipleObjects)
             {
-                EditorGUI.HelpBox(mainCtx.GetPropertyRect(position, MultiObjectWarningHeight), "Multiple object editing not supported", MessageType.Info);
+                EditorGUI.HelpBox(mainCtx.GetRect(position, MultiObjectWarningHeight), "Multiple object editing not supported", MessageType.Info);
                 return;
             }
 
@@ -86,26 +86,26 @@ namespace BX.Editor
             using (EditorGUI.DisabledScope disabled = new EditorGUI.DisabledScope(true))
             {
                 EditorGUI.FloatField(
-                    mainCtx.GetPropertyRect(indentedPosition, EditorGUIUtility.singleLineHeight),
+                    mainCtx.GetRect(indentedPosition, EditorGUIUtility.singleLineHeight),
                     new GUIContent("Total Duration", "The length (in seconds) that this animation will take."),
                     targetValue.Duration
                 );
             }
 
-            if (GUI.Button(mainCtx.GetPropertyRect(indentedPosition, ClearFramesButtonHeight), "Clear Frames"))
+            if (GUI.Button(mainCtx.GetRect(indentedPosition, ClearFramesButtonHeight), "Clear Frames"))
             {
                 Undo.RecordObject(property.serializedObject.targetObject, "Clear Frames");
 
                 targetValue.Clear();
             }
-            if (GUI.Button(mainCtx.GetPropertyRect(indentedPosition, ReverseFramesButtonHeight), "Reverse Frames"))
+            if (GUI.Button(mainCtx.GetRect(indentedPosition, ReverseFramesButtonHeight), "Reverse Frames"))
             {
                 Undo.RecordObject(property.serializedObject.targetObject, "Reverse Frames");
 
                 targetValue.Reverse();
             }
 
-            mainCtx.GetPropertyRect(position, 6); // Push space
+            mainCtx.GetRect(position, 6); // Push space
 
             bool loopPropertyValue = property.FindPropertyRelative(nameof(ValueAnimatorBase.Sequence.loop)).boolValue;
 
@@ -116,7 +116,7 @@ namespace BX.Editor
                     continue;
                 }
 
-                EditorGUI.PropertyField(mainCtx.GetPropertyRect(indentedPosition, visibleProp), visibleProp, true);
+                EditorGUI.PropertyField(mainCtx.GetRect(indentedPosition, visibleProp), visibleProp, true);
             }
 
             EditorGUI.indentLevel--;
